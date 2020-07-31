@@ -108,3 +108,34 @@ export function param2Obj(url) {
       '"}'
   )
 }
+
+// 转换字符串，undefined,null等转化为""
+export function praseStrEmpty(str) {
+  if (!str || str == "undefined" || str == "null") {
+      return "";
+  }
+  return str;
+}
+
+// 表单重置
+export function resetForm(refName) {
+if (this.$refs[refName]) {
+  this.$refs[refName].resetFields();
+}
+}
+
+/**
+ * @param {string} input value
+ * @returns {number} output value
+ */
+export function byteLength(str) {
+  // returns the byte length of an utf8 string
+  let s = str.length
+  for (var i = str.length - 1; i >= 0; i--) {
+    const code = str.charCodeAt(i)
+    if (code > 0x7f && code <= 0x7ff) s++
+    else if (code > 0x7ff && code <= 0xffff) s += 2
+    if (code >= 0xDC00 && code <= 0xDFFF) i--
+  }
+  return s
+}
