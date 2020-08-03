@@ -27,7 +27,7 @@ cd vue-h5-template
 
 npm install
 
-npm run serve
+npm run dev
 ```
 
 <span id="top">目录</span>
@@ -54,15 +54,15 @@ npm run serve
 
 `package.json` 里的 `scripts` 配置 `serve` `stage` `build`，通过 `--mode xxx` 来执行不同环境
 
-- 通过 `npm run serve` 启动本地 , 执行 `development`
-- 通过 `npm run stage` 打包测试 , 执行 `staging`
-- 通过 `npm run build` 打包正式 , 执行 `production`
+- 通过 `npm run dev` 启动本地 , 执行 `development`
+- 通过 `npm run build:stage` 打包测试 , 执行 `staging`
+- 通过 `npm run build:prod` 打包正式 , 执行 `production`
 
 ```javascript
 "scripts": {
-  "serve": "vue-cli-service serve --open",
-  "stage": "vue-cli-service build --mode staging",
-  "build": "vue-cli-service build",
+  "dev": "vue-cli-service serve --open",
+  "build:stage": "vue-cli-service build --mode staging",
+  "build:prod": "vue-cli-service build",
 }
 ```
 
