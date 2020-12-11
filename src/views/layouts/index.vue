@@ -1,10 +1,9 @@
 <template>
   <div class="app-container">
     <div class="layout-content">
-      <keep-alive v-if="$route.meta.keepAlive">
+      <keep-alive :include="whiteList">
         <router-view></router-view>
       </keep-alive>
-      <router-view v-else></router-view>
     </div>
     <div class="layout-footer">
       <TabBar :data="tabbars" @change="handleChange" />
@@ -13,36 +12,37 @@
 </template>
 
 <script>
-import TabBar from '@/components/TabBar'
-export default {
-  name: 'AppLayout',
-  data() {
-    return {
-      tabbars: [
-        {
-          title: '首页',
-          to: {
-            name: 'Home'
+  import TabBar from '@/components/TabBar'
+  export default {
+    name: 'AppLayout',
+    data() {
+      return {
+        whiteList: ["about", "index"],
+        tabbars: [{
+            title: '首页',
+            to: {
+              name: 'Home'
+            },
+            icon: 'home-o'
           },
-          icon: 'home-o'
-        },
-        {
-          title: '关于我',
-          to: {
-            name: 'About'
-          },
-          icon: 'user-o'
-        }
-      ]
-    }
-  },
-  components: {
-    TabBar
-  },
-  methods: {
-    handleChange(v) {
-      console.log('tab value:', v)
+          {
+            title: '关于我',
+            to: {
+              name: 'About'
+            },
+            icon: 'user-o'
+          }
+        ]
+      }
+    },
+    components: {
+      TabBar
+    },
+    methods: {
+      handleChange(v) {
+        console.log('tab value:', v)
+      }
     }
   }
-}
+
 </script>

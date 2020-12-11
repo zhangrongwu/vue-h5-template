@@ -29,6 +29,7 @@
 import { getUserInfo } from '@/api/user.js'
 import { mapGetters } from 'vuex'
 export default {
+  name:"about",
   data() {
     return {
       wechat: `${this.$cdn}/wx/640.gif`
